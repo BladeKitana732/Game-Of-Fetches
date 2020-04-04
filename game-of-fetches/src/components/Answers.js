@@ -19,6 +19,8 @@ export default class Answers extends Component {
 
     let secondSeat = "http://www.anapioficeandfire.com/api/houses/17";
 
+    let alias = "http://www.anapioficeandfire.com/api/characters/901";    
+
 
 
     axios.get(johnsBirth)
@@ -117,6 +119,26 @@ export default class Answers extends Component {
         console.log('Error has been computed', err)
 
     });
+
+    axios.get(alias)
+    
+    .then((result) => {
+        const secondAlias = result.data.aliases;
+
+        console.log('Robert Baratheon\'s second alias is', secondAlias[1])
+
+        // this.setState({
+        //     data: aliases
+        // })
+        
+    })
+    
+    .catch((err) => {
+
+        console.log('Error has been computed', err)
+
+    });
+
              
    
 }
