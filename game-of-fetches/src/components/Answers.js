@@ -10,8 +10,11 @@ export default class Answers extends Component {
    componentDidMount() {
 
     let johnsBirth = "https://anapioficeandfire.com/api/characters/583";
+    
     let margaeryLocation = "https://anapioficeandfire.com/api/characters/16";
-    let 
+    
+    let tarHouse = "http://www.anapioficeandfire.com/api/houses/378";
+
        
     axios.get(johnsBirth) 
     
@@ -32,7 +35,7 @@ export default class Answers extends Component {
 
     });
 
-    axios.get()
+    axios.get(margaeryLocation)
     
     .then((result) => {
         const birth = result.data.born;
@@ -52,15 +55,15 @@ export default class Answers extends Component {
     });
 
 
-    axios.get(margaeryLocation)
+    axios.get(tarHouse)
     
     .then((result) => {
-        const birth = result.data.born;
+        const region = result.data.region;
 
-        console.log('Margaery was born', birth)
+        console.log('The region the House of Targaryen is in ', region)
 
         this.setState({
-            data: birth
+            data: region
         });
         
     })
