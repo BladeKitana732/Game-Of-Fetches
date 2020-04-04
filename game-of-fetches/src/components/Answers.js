@@ -15,8 +15,13 @@ export default class Answers extends Component {
     
     let tarHouse = "http://www.anapioficeandfire.com/api/houses/378";
 
-       
-    axios.get(johnsBirth) 
+    let armsOfLannister = "https://www.anapioficeandfire.com/api/houses/229";
+
+    let secondSeat = "http://www.anapioficeandfire.com/api/houses/17";
+
+
+
+    axios.get(johnsBirth)
     
     .then((result) => {
         const birth = result.data.born;
@@ -73,9 +78,48 @@ export default class Answers extends Component {
         console.log('Error has been computed', err)
 
     });
+
+    axios.get(armsOfLannister)
+
+    .then((result) => {
+        const arms = result.data.coatOfArms;
+
+        console.log('The coat of arms for House of Lannister is ', arms)
+
+        this.setState({
+            data: arms
+        });
+
+
+    })
+
+    .catch((err) => {
+
+        console.log('Error has been computed', err)
+
+    });
+
+    axios.get(secondSeat)
+    
+    .then((result) => {
+        const seat = result.data.seats;
+
+        console.log('The second seat of Baratheon House is', seat[1])
+
+        this.setState({
+            data: seat
+        });
+        
+    })
+    
+    .catch((err) => {
+
+        console.log('Error has been computed', err)
+
+    });
              
-   }
    
+}
 
 
 
@@ -86,5 +130,7 @@ export default class Answers extends Component {
             </div>
         )
     }
+
+
 }
 
