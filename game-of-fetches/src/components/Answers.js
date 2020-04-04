@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class Answers extends Component {
-    constructor(props)
-    super(props)
 
    state = {
        data: []
