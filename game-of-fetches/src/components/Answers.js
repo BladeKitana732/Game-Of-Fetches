@@ -24,7 +24,12 @@ export default class Answers extends Component {
     //nested api call to get answer. first url to get to url for founder
     let nestedOne = "http://www.anapioficeandfire.com/api/houses/362";
 
-    
+    let nestedApi = axios.get(nestedOne);
+
+    nestedApi.then((result) => {
+        
+        console.log(result)
+    })
 
 
 
