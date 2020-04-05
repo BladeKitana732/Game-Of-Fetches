@@ -46,7 +46,10 @@ export default class Answers extends Component {
             console.log(title1.data.name, 'is book one title')
             console.log(title2.data.name, 'is book two title')
             console.log(title3.data.name, 'is book three title')
+           
         })
+
+       
     )
 
 
@@ -55,6 +58,10 @@ export default class Answers extends Component {
         const founder = result.data.name;
 
         console.log(founder, 'was the founder of House Stark')
+
+        this.setState({
+            answer7: founder
+        })
     })
 
 
@@ -107,7 +114,7 @@ export default class Answers extends Component {
         console.log('The region the House of Targaryen is in ', region)
 
         this.setState({
-            data: region
+            answer3: region
         });
         
     })
@@ -126,7 +133,7 @@ export default class Answers extends Component {
         console.log('The coat of arms for House of Lannister is ', arms)
 
         this.setState({
-            data: arms
+            answer4: arms
         });
 
 
@@ -146,7 +153,7 @@ export default class Answers extends Component {
         console.log('The second seat of Baratheon House is', seat[1])
 
         this.setState({
-            data: seat
+            answer5: seat
         });
         
     })
@@ -164,9 +171,9 @@ export default class Answers extends Component {
 
         console.log('Robert Baratheon\'s second alias is', secondAlias[1])
 
-        // this.setState({
-        //     data: aliases
-        // })
+        this.setState({
+            answer6: secondAlias[1]
+        })
         
     })
     
@@ -175,20 +182,6 @@ export default class Answers extends Component {
         console.log('Error has been computed', err)
 
     });
-
-
-    axios.get(secondSeat)
-    
-    .then((result) => {
-        const seat = result.data.seats;
-
-        console.log('The second seat of Baratheon House is', seat[1])
-
-        this.setState({
-            data: seat
-        });
-        
-    })
 
 
              
@@ -208,22 +201,22 @@ export default class Answers extends Component {
                 <p>{ this.state.answer2 }</p>
 
                 <h4>What region is House Targaryen in?</h4>
-                <p></p>
+                <p>{ this.state.answer3 }</p>
 
                 <h4>What's the coat of arms of House Lannister?</h4>
-                <p></p>
+                <p>{ this.state.answer4 }</p>
 
                 <h4>What is the second seat of House Baratheon?</h4>
-                <p></p>
+                <p>{ this.state.answer5 }</p>
 
                 <h4>What is Robert Baratheon's second alias?</h4>
-                <p></p>
+                <p>{ this.state.answer6 }</p>
 
                 <h4>What's the name of the founder of House Stark?</h4>
-                <p></p>
+                <p>{ this.state.answer7 }</p>
 
                 <h4>What are the titles of Catelyn Stark's three POV books?</h4>
-                <p></p>
+                <p>{ this.state.answer8 }</p>
 
             </div>
         )
