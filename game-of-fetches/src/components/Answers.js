@@ -43,13 +43,31 @@ export default class Answers extends Component {
     .then(
         //needed to use .spread method in order to assign the properties of the data array to the separate variables; it is also used to unpack values from the data array. used resource: https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/
         axios.spread((title1, title2, title3) => {
+           
             console.log(title1.data.name, 'is book one title')
             console.log(title2.data.name, 'is book two title')
-            console.log(title3.data.name, 'is book three title')
+            console.log(title3.data.name, 'is book three title');
+
+            //storing code in console.log into variable to display in DOM test1 
+
+            let book1 = title1.data.name;
+            let book2 = title2.data.name;
+            let book3 = title3.data.name;
+
+            this.setState({
+
+                answer8: book1,
+                answer9: book2,
+                answer10: book3
+            })
+
+         
+
+
+
            
         })
-
-       
+        
     )
 
 
@@ -216,7 +234,7 @@ export default class Answers extends Component {
                 <p>{ this.state.answer7 }</p>
 
                 <h4>What are the titles of Catelyn Stark's three POV books?</h4>
-                <p>{ this.state.answer8 }</p>
+                <p>{ this.state.answer8 } {this.state.answer9 } { this.state.answer10 }</p>
 
             </div>
         )
