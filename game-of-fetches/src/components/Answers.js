@@ -82,12 +82,12 @@ export default class Answers extends Component {
     axios.get(margaeryLocation)
     
     .then((result) => {
-        const birth = result.data.born;
+        const birth1 = result.data.born;
 
-        console.log('Margaery was born', birth)
+        console.log('Margaery was born', birth1)
 
         this.setState({
-            data: birth
+            data: birth1
         });
         
     })
@@ -201,6 +201,29 @@ export default class Answers extends Component {
         return (
             <div>
                 <h2>Questions and answers.</h2>
+                <h4>When was Jon Snow born?</h4>
+                <p>{ this.state.birth }</p>
+
+                <h4>Where was Margaery Tyrell born?</h4>
+                <p></p>
+
+                <h4>What region is House Targaryen in?</h4>
+                <p></p>
+
+                <h4>What's the coat of arms of House Lannister?</h4>
+                <p></p>
+
+                <h4>What is the second seat of House Baratheon?</h4>
+                <p></p>
+
+                <h4>What is Robert Baratheon's second alias?</h4>
+                <p></p>
+
+                <h4>What's the name of the founder of House Stark?</h4>
+                <p></p>
+
+                <h4>What are the titles of Catelyn Stark's three POV books?</h4>
+                <p></p>
 
             </div>
         )
