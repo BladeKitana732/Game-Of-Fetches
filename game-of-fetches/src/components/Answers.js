@@ -22,13 +22,15 @@ export default class Answers extends Component {
     let alias = "http://www.anapioficeandfire.com/api/characters/901";    
 
     //nested api call to get answer. first url to get to url for founder
-    let nestedOne = "http://www.anapioficeandfire.com/api/houses/362";
+    let nestedOne = "https://www.anapioficeandfire.com/api/characters/209";
 
-    let nestedApi = axios.get(nestedOne);
+    // let firstApi = "https://www.anapioficeandfire.com/api/houses/362";
 
-    nestedApi.then((result) => {
-        
-        console.log(result)
+    axios.get(nestedOne) 
+    .then((result) => {
+        const founder = result.data.name;
+
+        console.log(founder, 'was the founder of House Stark')
     })
 
 
