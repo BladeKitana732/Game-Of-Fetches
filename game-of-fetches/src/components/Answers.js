@@ -26,6 +26,30 @@ export default class Answers extends Component {
 
     // let firstApi = "https://www.anapioficeandfire.com/api/houses/362";
 
+
+    //needing to use .all() method to call name titles of books from each api url
+    let bookTitle1 = "https://www.anapioficeandfire.com/api/books/1";
+
+    let bookTitle2 = "https://www.anapioficeandfire.com/api/books/2";
+
+    let bookTitle3 = "https://www.anapioficeandfire.com/api/books/3";
+
+    //variables to pull name of titles to use .all() method
+    const name1 = axios.get(bookTitle1);
+    const name2 = axios.get(bookTitle2);
+    const name3 = axios.get(bookTitle3);
+
+    axios.all([name1, name2, name3])
+    .then(
+        //needed to use .spread method in order to assign the properties of the data array to the separate variables; it is also used to unpack values from the data array. used resource: https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/
+        axios.spread((title1, title2, title3) => {
+            console.log(title1.data.name, 'is book one title')
+            console.log(title2.data.name, 'is book two title')
+            console.log(title3.data.name, 'is book three title')
+        })
+    )
+
+
     axios.get(nestedOne) 
     .then((result) => {
         const founder = result.data.name;
